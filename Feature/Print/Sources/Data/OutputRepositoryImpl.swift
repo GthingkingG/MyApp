@@ -8,7 +8,8 @@
 
 import Foundation
 
-final class OutputRepositoryImpl: OutputRepository {
+final class OutputRepositoryImpl: OutputRepository, Sendable {
+    
     func printOutput(input: String) async throws -> Output {
         let output = Output(content: input)
         return output

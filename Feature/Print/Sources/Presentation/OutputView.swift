@@ -9,10 +9,10 @@
 import SwiftUI
 
 public struct OutputView: View {
-    @StateObject private var viewModel: OutputViewModel
+    @State private var viewModel: OutputViewModel
     
     public init(viewModel: OutputViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
+        _viewModel = State(initialValue: viewModel)
     }
     
     public var body: some View {

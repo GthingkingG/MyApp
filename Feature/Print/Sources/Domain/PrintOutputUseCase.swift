@@ -15,6 +15,7 @@ public struct PrintOutputUseCase {
         self.repository = repository
     }
     
+    @MainActor
     func execute(input: String) async throws -> Output {
         try await repository.printOutput(input: input)
     }

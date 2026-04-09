@@ -8,15 +8,18 @@
 
 import Foundation
 
+
+@Observable
 @MainActor
-public final class OutputViewModel: ObservableObject {
-    @Published private var content: String = ""
+public final class OutputViewModel {
+    private var content: String = ""
     
     private let printOutputUseCase: PrintOutputUseCase
     
     public init(printOutputUseCase: PrintOutputUseCase) {
         self.printOutputUseCase = printOutputUseCase
     }
+    
     
     func printOutput() async {
         do {
