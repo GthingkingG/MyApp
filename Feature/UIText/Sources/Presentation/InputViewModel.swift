@@ -8,10 +8,11 @@
 
 import Foundation
 
+@Observable
 @MainActor
 public final class InputViewModel: ObservableObject {
     let nickName: String = "One"
-    @Published var inputData: String = ""
+    var inputData: String = ""
     
     private let setInputUseCase: SetInputUseCase
     
