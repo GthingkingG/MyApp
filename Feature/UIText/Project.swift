@@ -18,7 +18,9 @@ let project = Project(
             bundleId: "com.myapp.UIText",
             deploymentTargets: .iOS("18.0"),
             buildableFolders: [.folder("Sources")],
-            dependencies: [],
+            dependencies: [
+                .project(target: "ContentData", path: "../../Core/ContentData")
+            ],
             settings: .settings(
                 base: [
                     "SWIFT_VERSION": "6.3"

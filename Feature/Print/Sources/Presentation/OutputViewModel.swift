@@ -7,23 +7,21 @@
 //
 
 import Foundation
-
+import ContentData
 
 @Observable
 @MainActor
 public final class OutputViewModel {
-    private var content: String = ""
+    private let getContentUseCase: GetContentUseCase
     
-    private let printOutputUseCase: PrintOutputUseCase
-    
-    public init(printOutputUseCase: PrintOutputUseCase) {
-        self.printOutputUseCase = printOutputUseCase
+    public init(getContentUseCase: GetContentUseCase) {
+        self.getContentUseCase = getContentUseCase
     }
     
     
     func printOutput() async {
         do {
-            let output = try await printOutputUseCase.execute(input: content)
+            let output = try await getContentUseCase.execute()
             print(output)
         } catch { print(error) }
     }

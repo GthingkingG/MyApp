@@ -9,6 +9,7 @@ import Foundation
 import DIContainer
 import Print
 import UIText
+import ContentData
 
 extension DIContainer {
     
@@ -16,31 +17,32 @@ extension DIContainer {
     static func makeAppContainer() -> DIContainer {
         let container = DIContainer()
         
-        container.register(InputRepository.self) { resolver in
-            InputRepositoryImpl()
-        }
         
-        container.register(SetInputUseCase.self) { resolver in
-            SetInputUseCase(repository: resolver.resolve(InputRepository.self))
-        }
-        
+        //Input
         container.register(InputViewModel.self) { resolver in
-            InputViewModel(setInputUseCase: resolver.resolve(SetInputUseCase.self))
-        }
-        
-        container.register(OutputRepository.self) { resolver in
-            OutputRepositoryImpl()
-        }
-        
-        container.register(PrintOutputUseCase.self) { resolver in
-            PrintOutputUseCase(repository: resolver.resolve(OutputRepository.self))
+            InputViewModel(setContentUseCase: resolver.resolve(SetContentUseCase.self))
         }
         
         
+        //Output
         container.register(OutputViewModel.self) { resolver in
-            OutputViewModel(printOutputUseCase: resolver.resolve(PrintOutputUseCase.self))
+            OutputViewModel(getContentUseCase: resolver.resolve(GetContentUseCase.self))
         }
         
+        //ContentData
+        container.register(ContentRepository.self) { resolver in
+            ContentRepositoryImpl()
+        }
+        
+        container.register(GetContentUseCase.self) { resolver in
+            GetContentUseCase(repository: resolver.resolve(ContentRepository.self))
+        }
+        
+        container.register(SetContentUseCase.self) { resolver in
+            SetContentUseCase(repository: resolver.resolve(ContentRepository.self))
+        }
+        
+        //ContentViewModel
         container.register(ContentViewModel.self) { resolver in
             ContentViewModel(inputViewModel: resolver.resolve(InputViewModel.self), outputViewModel: resolver.resolve(OutputViewModel.self))
         }

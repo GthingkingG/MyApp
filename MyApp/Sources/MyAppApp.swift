@@ -10,6 +10,7 @@ struct MyAppApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView(viewModel: container.resolve(ContentViewModel.self))
+                .environment(container)
         }
     }
 }

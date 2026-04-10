@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ContentData
 
 @Observable
 @MainActor
@@ -14,18 +15,15 @@ public final class InputViewModel: ObservableObject {
     let nickName: String = "One"
     var inputData: String = ""
     
-    private let setInputUseCase: SetInputUseCase
+    private let setContentUseCase: SetContentUseCase
     
-    public init(setInputUseCase: SetInputUseCase) {
-        self.setInputUseCase = setInputUseCase
+    public init(setContentUseCase: SetContentUseCase) {
+        self.setContentUseCase = setContentUseCase
     }
     
     func setInput() async {
         do {
-            let input = try await setInputUseCase.execute(content: self.inputData)
-            print(input) //디버깅용
+            try await setContentUseCase.execute(input: self.inputData)
         } catch { print(error) }
     }
 }
-
-

@@ -29,19 +29,3 @@ public struct InputView: View {
         }
     }
 }
-
-#if DEBUG
-  private struct MockInputRepository: InputRepository {
-      func setInput(content: String) async throws -> Input {
-          Input(content: content)
-      }
-  }
-
-  #Preview {
-      InputView(
-          viewModel: InputViewModel(
-              setInputUseCase: SetInputUseCase(repository: MockInputRepository())
-          )
-      )
-  }
-  #endif

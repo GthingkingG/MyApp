@@ -18,6 +18,7 @@ public struct ContentView: View {
             
             OutputView(viewModel: viewModel.outputViewModel)
         }
+        .padding()
     }
 }
 

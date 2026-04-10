@@ -2,24 +2,24 @@
 //  Project.swift
 //  Config
 //
-//  Created by One on 4/5/26.
+//  Created by One on 4/10/26.
 //
 
 import ProjectDescription
 
 let project = Project(
-    name: "Print",
+    name: "ContentData",
     organizationName: "com.myapp",
     targets: [
         .target(
-            name: "Print",
+            name: "ContentData",
             destinations: .iOS,
             product: .staticFramework,       // Static/Dynamic Framework
             bundleId: "com.myapp.Print",
             deploymentTargets: .iOS("18.0"),
             buildableFolders: [.folder("Sources")],
             dependencies: [
-                .project(target: "ContentData", path: "../../Core/ContentData")
+                .project(target: "DIContainer", path: "../../Core/DIContainer")
             ],
             settings: .settings(
                 base: [

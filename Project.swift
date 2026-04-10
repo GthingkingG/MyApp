@@ -23,7 +23,8 @@ let project = Project(
             dependencies: [
                 .project(target: "UIText", path: .relativeToRoot("Feature/UIText")),
                 .project(target: "Print", path: .relativeToRoot("Feature/Print")),
-                .project(target: "DIContainer", path: .relativeToRoot("Core/DIContainer"))
+                .project(target: "DIContainer", path: .relativeToRoot("Core/DIContainer")),
+                .project(target: "ContentData", path: .relativeToRoot("Core/ContentData"))
             ]
         ),
     ]

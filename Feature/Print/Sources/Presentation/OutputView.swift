@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import ContentData
 
 public struct OutputView: View {
     @State private var viewModel: OutputViewModel
@@ -32,20 +33,3 @@ public struct OutputView: View {
         }
     }
 }
-
-#if DEBUG
-private struct MockOutputRepository: OutputRepository {
-    func printOutput(input: String) async throws -> Output {
-        Output(content: "mock: \(input)")
-    }
-}
-
-#Preview {
-    OutputView(
-        viewModel: OutputViewModel(
-            printOutputUseCase: PrintOutputUseCase(repository: MockOutputRepository())
-        )
-    )
-}
-#endif
-
