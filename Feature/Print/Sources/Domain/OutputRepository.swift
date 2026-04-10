@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol OutputRepository: Sendable {
+public protocol OutputRepository: Sendable {
     func printOutput(input: String) async throws -> Output
 }

@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol InputRepository: Sendable {
+public protocol InputRepository: Sendable {
     func setInput(content: String) async throws -> Input
 }

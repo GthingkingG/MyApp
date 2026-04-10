@@ -8,9 +8,11 @@
 
 import Foundation
 
-final class InputRepositoryImpl: InputRepository {
+public final class InputRepositoryImpl: InputRepository, Sendable {
     
-    func setInput(content: String) async throws -> Input {
+    public init() { }
+    
+    public func setInput(content: String) async throws -> Input {
         let input = Input(content: content)
         return input
     }

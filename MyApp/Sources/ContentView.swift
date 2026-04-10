@@ -1,24 +1,23 @@
 import SwiftUI
 import Print
 import UIText
+import DIContainer
 
 public struct ContentView: View {
-    public init() {}
-
+    public init(viewModel: ContentViewModel) {
+        self.viewModel = viewModel
+    }
+    
+    @State private var viewModel: ContentViewModel
+    
     public var body: some View {
         VStack {
-            OutputView(viewModel: <#OutputViewModel#>)
+            InputView(viewModel: viewModel.inputViewModel)
+            
             Spacer()
-            InputView(viewModel: <#InputViewModel#>)
+            
+            OutputView(viewModel: viewModel.outputViewModel)
         }
     }
 }
 
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            Text("Q!11")
-        }        
-    }
-}

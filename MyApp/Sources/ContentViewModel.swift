@@ -6,8 +6,18 @@
 //
 
 import Foundation
+import UIText
+import Print
 
 @MainActor
-final class ContentViewModel: ObservableObject {
-    @Published var content: String = ""
+@Observable
+public final class ContentViewModel {
+    public init(inputViewModel: InputViewModel, outputViewModel: OutputViewModel) {
+        self.inputViewModel = inputViewModel
+        self.outputViewModel = outputViewModel
+    }
+    
+    var content: String = ""
+    var inputViewModel: InputViewModel
+    var outputViewModel: OutputViewModel
 }

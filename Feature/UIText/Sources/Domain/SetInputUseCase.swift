@@ -8,13 +8,14 @@
 
 import Foundation
 
-struct SetInputUseCase {
+public struct SetInputUseCase {
     private let repository: InputRepository
     
-    init(repository: InputRepository) {
+    public init(repository: InputRepository) {
         self.repository = repository
     }
     
+    @MainActor
     func execute(content: String) async throws -> Input {
         try await repository.setInput(content: content)
     }

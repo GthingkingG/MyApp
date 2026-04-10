@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Input: Equatable {
+public struct Input: Equatable {
     let content: String
 }

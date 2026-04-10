@@ -17,6 +17,7 @@ public protocol Resolver {
     func resolve<T>(_ type: T.Type) -> T
 }
 
+@Observable
 public final class DIContainer: Resolver {
     public init() { }
     
@@ -75,3 +76,4 @@ public final class DIContainer: Resolver {
         }
     }
 }
+

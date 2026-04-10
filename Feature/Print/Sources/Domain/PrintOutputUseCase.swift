@@ -11,7 +11,7 @@ import Foundation
 public struct PrintOutputUseCase {
     private let repository: OutputRepository
     
-    init(repository: OutputRepository) {
+    public init(repository: OutputRepository) {
         self.repository = repository
     }
     

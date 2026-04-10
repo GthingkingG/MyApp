@@ -16,7 +16,7 @@ public final class InputViewModel: ObservableObject {
     
     private let setInputUseCase: SetInputUseCase
     
-    init(setInputUseCase: SetInputUseCase) {
+    public init(setInputUseCase: SetInputUseCase) {
         self.setInputUseCase = setInputUseCase
     }
     
