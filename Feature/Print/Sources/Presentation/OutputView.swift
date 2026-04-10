@@ -20,7 +20,7 @@ public struct OutputView: View {
         VStack {
             Button(action: {
                 Task {
-                    await viewModel.printOutput()
+                    await viewModel.returnOutput()
                 }
             }, label: {
                 Text("출력 버튼")
@@ -30,6 +30,10 @@ public struct OutputView: View {
                             .fill(.green)
                     }
             })
+        }
+        .sheet(isPresented: $viewModel.isSheet) {
+            Text(viewModel.content)
+                .font(.headline)
         }
     }
 }

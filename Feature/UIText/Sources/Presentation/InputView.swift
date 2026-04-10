@@ -24,7 +24,7 @@ public struct InputView: View {
                     await viewModel.setInput()
                 }
             }, label: {
-                Text("버튼")
+                Text("저장")
             })
         }
     }

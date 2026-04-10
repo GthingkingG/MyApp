@@ -1,5 +1,5 @@
 import Foundation
 
 public struct Content: Sendable {
-    let contents: String
+    public let contents: String
 }

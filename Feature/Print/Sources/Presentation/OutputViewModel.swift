@@ -13,16 +13,23 @@ import ContentData
 @MainActor
 public final class OutputViewModel {
     private let getContentUseCase: GetContentUseCase
+    var content: String = ""
+    var isSheet: Bool = false
     
     public init(getContentUseCase: GetContentUseCase) {
         self.getContentUseCase = getContentUseCase
     }
     
     
-    func printOutput() async {
+    func returnOutput() async {
         do {
             let output = try await getContentUseCase.execute()
             print(output)
-        } catch { print(error) }
+            content = output.contents
+            isSheet = true
+        } catch {
+            print(error)
+        }
     }
+    
 }
