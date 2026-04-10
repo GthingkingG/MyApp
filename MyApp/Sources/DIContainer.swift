@@ -17,6 +17,18 @@ extension DIContainer {
     static func makeAppContainer() -> DIContainer {
         let container = DIContainer()
         
+        //ContentData
+        container.register(ContentRepository.self, scope: .singleton) { resolver in
+            ContentRepositoryImpl()
+        }
+        
+        container.register(GetContentUseCase.self) { resolver in
+            GetContentUseCase(repository: resolver.resolve(ContentRepository.self))
+        }
+        
+        container.register(SetContentUseCase.self) { resolver in
+            SetContentUseCase(repository: resolver.resolve(ContentRepository.self))
+        }
         
         //Input
         container.register(InputViewModel.self) { resolver in
@@ -27,19 +39,6 @@ extension DIContainer {
         //Output
         container.register(OutputViewModel.self) { resolver in
             OutputViewModel(getContentUseCase: resolver.resolve(GetContentUseCase.self))
-        }
-        
-        //ContentData
-        container.register(ContentRepository.self) { resolver in
-            ContentRepositoryImpl()
-        }
-        
-        container.register(GetContentUseCase.self) { resolver in
-            GetContentUseCase(repository: resolver.resolve(ContentRepository.self))
-        }
-        
-        container.register(SetContentUseCase.self) { resolver in
-            SetContentUseCase(repository: resolver.resolve(ContentRepository.self))
         }
         
         //ContentViewModel

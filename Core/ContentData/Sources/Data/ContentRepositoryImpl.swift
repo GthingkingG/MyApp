@@ -9,13 +9,15 @@
 import Foundation
 
 public actor ContentRepositoryImpl: ContentRepository, Sendable {
-    public init() { }
+    public init() {
+        print("ContentRepositoryIMPL")
+    }
     
-    private var content: Content = Content(contents: "")
+    private var content: Content = Content(contents: "1")
     
     
     public func getContent() async throws -> Content {
-        return self.content
+        content
     }
     
     public func setContent(input: String) async throws {
