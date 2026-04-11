@@ -10,6 +10,7 @@ import DIContainer
 import Print
 import UIText
 import ContentData
+import Parsing
 
 extension DIContainer {
     
@@ -41,9 +42,14 @@ extension DIContainer {
             OutputViewModel(getContentUseCase: resolver.resolve(GetContentUseCase.self))
         }
         
+        //Parsing
+        container.register(ParsingViewModel.self) { resolver in
+            ParsingViewModel(getContentUseCase: resolver.resolve(GetContentUseCase.self))
+        }
+        
         //ContentViewModel
         container.register(ContentViewModel.self) { resolver in
-            ContentViewModel(inputViewModel: resolver.resolve(InputViewModel.self), outputViewModel: resolver.resolve(OutputViewModel.self))
+            ContentViewModel(inputViewModel: resolver.resolve(InputViewModel.self), outputViewModel: resolver.resolve(OutputViewModel.self), parsingViewModel: resolver.resolve(ParsingViewModel.self))
         }
         
         

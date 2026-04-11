@@ -23,7 +23,7 @@ public final class OutputViewModel {
     
     internal func returnOutput() async {
         do {
-            private let output = try await getContentUseCase.execute()
+            let output = try await getContentUseCase.execute()
             print(output)
             content = output.contents
             isSheet = true

@@ -2,6 +2,7 @@ import SwiftUI
 import Print
 import UIText
 import DIContainer
+import Parsing
 
 public struct ContentView: View {
     public init(viewModel: ContentViewModel) {
@@ -16,7 +17,11 @@ public struct ContentView: View {
             
             Spacer()
             
-            OutputView(viewModel: viewModel.outputViewModel)
+            HStack {
+                OutputView(viewModel: viewModel.outputViewModel)
+                Spacer()
+                ParsingView(viewModel: viewModel.parsingViewModel)
+            }
         }
         .padding()
     }
