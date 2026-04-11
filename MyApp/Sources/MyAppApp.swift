@@ -5,9 +5,9 @@ import UIText
 
 @main
 struct MyAppApp: App {
-    @State var container = DIContainer.makeAppContainer()
+    @State internal var container = DIContainer.makeAppContainer()
     
-    var body: some Scene {
+    internal var body: some Scene {
         WindowGroup {
             ContentView(viewModel: container.resolve(ContentViewModel.self))
                 .environment(container)

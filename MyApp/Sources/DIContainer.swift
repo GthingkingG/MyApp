@@ -14,7 +14,7 @@ import ContentData
 extension DIContainer {
     
     @MainActor
-    static func makeAppContainer() -> DIContainer {
+    internal static func makeAppContainer() -> DIContainer {
         let container = DIContainer()
         
         //ContentData

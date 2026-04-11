@@ -17,7 +17,7 @@ public final class ContentViewModel {
         self.outputViewModel = outputViewModel
     }
     
-    var content: String = ""
-    var inputViewModel: InputViewModel
-    var outputViewModel: OutputViewModel
+    internal var content: String = ""
+    internal var inputViewModel: InputViewModel
+    internal var outputViewModel: OutputViewModel
 }
