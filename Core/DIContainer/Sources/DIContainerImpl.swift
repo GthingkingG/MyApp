@@ -52,7 +52,10 @@ public final class DIContainer: Resolver {
         defer { lock.unlock() }
         
         guard var entry = entries[key] else {
+            
+            #if DEBUG
             fatalError("No registration found for \(type)")
+            #endif
         }
         
         switch entry.scope {
