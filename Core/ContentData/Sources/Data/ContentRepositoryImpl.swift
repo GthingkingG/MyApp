@@ -10,7 +10,9 @@ import Foundation
 
 public actor ContentRepositoryImpl: ContentRepository, Sendable {
     public init() {
+        #if DEBUG
         print("ContentRepositoryIMPL")
+        #endif
     }
     
     private var content: Content = Content(contents: "1")
