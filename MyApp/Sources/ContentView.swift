@@ -5,6 +5,8 @@ import DIContainer
 import Parsing
 
 public struct ContentView: View {
+    @Environment var container: DIContainer
+    
     public init(viewModel: ContentViewModel) {
         self.viewModel = viewModel
     }
@@ -13,7 +15,7 @@ public struct ContentView: View {
     
     public var body: some View {
         VStack {
-            InputView(viewModel: viewModel.inputViewModel)
+            InputView(viewModel: container.resolve(<#T##type: T.Type##T.Type#>))
             
             Spacer()
             
